@@ -1,9 +1,12 @@
 import React from 'react';
+import BasicFlow from './Flow';
+import { Box } from '@mui/material';
 
 function App() {
   return (
-    <div>
-    </div>
+    <Box width="100vw" height="100vh">
+      <BasicFlow />
+    </Box>
   );
 }
 
