@@ -10,8 +10,9 @@ import ReactFlow, {
 } from "reactflow";
 
 import "reactflow/dist/style.css";
-import CustomNode from "./CustomNode";
+import CustomNode from "../../components/CustomNode";
 import React from "react";
+import CustomEdge from "../../components/ButtonEdge";
 
 const initialNodes: Node[] = [
   {
@@ -31,7 +32,7 @@ const initialNodes: Node[] = [
 ];
 
 const initialEdges: Edge[] = [
-  { id: "e1-2", source: "1", target: "2", type: "smoothstep" },
+  { id: "e1-2", source: "1", target: "2", type: "buttonedge" },
   { id: "e1-3", source: "1", target: "3", type: "smoothstep" },
 ];
 
@@ -39,7 +40,11 @@ const nodeTypes = {
   custom: CustomNode,
 };
 
-const BasicFlow = () => {
+const edgeTypes = {
+  buttonedge: CustomEdge,
+};
+
+const BasicFlow = (): JSX.Element => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback(
@@ -51,6 +56,7 @@ const BasicFlow = () => {
     <ReactFlow
       nodes={nodes}
       edges={edges}
+      edgeTypes={edgeTypes}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
