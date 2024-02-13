@@ -1,5 +1,5 @@
 {
-  "name": "link-mapper",
+  "name": "web-crawler",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
