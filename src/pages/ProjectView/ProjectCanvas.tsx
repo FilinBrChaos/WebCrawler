@@ -44,7 +44,7 @@ const edgeTypes = {
   buttonedge: CustomEdge,
 };
 
-const BasicFlow = (): JSX.Element => {
+export const ProjectCanvas = (): JSX.Element => {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
   const onConnect = useCallback(
@@ -67,5 +67,3 @@ const BasicFlow = (): JSX.Element => {
     </ReactFlow>
   );
 };
-
-export default BasicFlow;

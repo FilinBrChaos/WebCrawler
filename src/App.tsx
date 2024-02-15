@@ -1,8 +1,10 @@
 import React from "react";
-import BasicFlow from "./pages/ProjectView/Flow";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
 import { Box } from "@mui/material";
+import { Provider } from "react-redux";
+import { store } from "./redux/app/store";
+import { ProjectView } from "./pages/ProjectView/ProjectView";
 
 function App(): JSX.Element {
   // const { apiClient, getProject } = useProjectContext();
@@ -17,7 +19,7 @@ function App(): JSX.Element {
     },
     {
       path: "canvas",
-      element: <BasicFlow />,
+      element: <ProjectView />,
     },
     // {
     //   path: "projects",
@@ -100,8 +102,9 @@ function App(): JSX.Element {
     // },
   ]);
   return (
-    <Box height="100vh" width="100vw">
-      {/* <ToastContainer
+    <Box height="100vh" width="100vw" overflow="hidden">
+      <Provider store={store}>
+        {/* <ToastContainer
         position="top-right"
         transition={Slide}
         autoClose={3000}
@@ -110,7 +113,8 @@ function App(): JSX.Element {
         draggable
         pauseOnHover
       /> */}
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
+      </Provider>
     </Box>
   );
 }
